@@ -31,8 +31,9 @@ export default function Sidebar() {
             <Link
               key={item.name}
               href={item.href}
+              aria-label={`Aller à la page ${item.name}`}
               className={clsx(
-                "group flex items-center px-3 py-2.5 text-sm font-medium rounded-xl transition-all duration-200",
+                "group flex items-center px-3 py-2.5 text-sm font-medium rounded-xl transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
                 isActive
                   ? "bg-accent/10 text-accent"
                   : "text-text-secondary hover:bg-card-hover hover:text-text-primary"
@@ -55,8 +56,11 @@ export default function Sidebar() {
       </div>
 
       <div className="p-4 border-t border-border">
-        <button className="flex items-center w-full px-3 py-2.5 text-sm font-medium rounded-xl text-text-secondary hover:bg-card-hover hover:text-error transition-all duration-200 group">
-          <LogOut className="mr-3 h-5 w-5 text-text-secondary group-hover:text-error transition-colors duration-200" />
+        <button 
+          aria-label="Se déconnecter"
+          className="flex items-center w-full px-3 py-2.5 text-sm font-medium rounded-xl text-text-secondary hover:bg-card-hover hover:text-error transition-all duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-error"
+        >
+          <LogOut aria-hidden="true" className="mr-3 h-5 w-5 text-text-secondary group-hover:text-error transition-colors duration-200" />
           Déconnexion
         </button>
       </div>
